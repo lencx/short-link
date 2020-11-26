@@ -11,7 +11,7 @@ permalink: "{{ link }}/"
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <meta name="description" content="link shortener" data-react-helmet="true">
   {% if link !== '/-' %}
-  <meta http-equiv="refresh" content="0;url={{ links[link] }}">
+  <meta http-equiv="refresh" content="0; url='{{ links[link] }}'">
   {% endif %}
 </head>
 {% if link === '/-' %}
@@ -30,7 +30,7 @@ permalink: "{{ link }}/"
   {% endfor %}
 </ul>
 <footer>
-MIT License | Copyright © 2020 <i>❤️</i> lencx
+Copyright © 2020 lencx ❤️ Powered by <a href="https://github.com/lencx/short-link">short-link</a>
 <footer>
 </body>
 
@@ -84,10 +84,8 @@ footer {
   font-size: 14px;
   color: #888;
 }
-footer i {
-  font-style: normal;
-  font-size: 12px;
-  margin-right: 5px;
+footer a {
+  color: rgb(70, 174, 192);
 }
 </style>
 {% endif %}
