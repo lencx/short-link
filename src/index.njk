@@ -1,0 +1,93 @@
+---
+pagination:
+  data: links
+  size: 1
+  alias: link
+permalink: "{{ link }}/"
+---
+<!DOCTYPE html>
+<head>
+  <title>~> · lencx</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta name="description" content="link shortener" data-react-helmet="true">
+  {% if link !== '/-' %}
+  <meta http-equiv="refresh" content="0;url={{ links[link] }}">
+  {% endif %}
+</head>
+{% if link === '/-' %}
+<body>
+<div class="info">
+  <div><b>Author:</b> lencx</div>
+  <div><b>Description:</b> Link shortener</div>
+  <div><b>GitHub:</b> <a href="https://github.com/lencx/short-link">https://github.com/lencx/short-link</a></div>
+  <div><b>Root Link:</b> https://z.nofwl.com/{path}</div>
+  <div><b>Example:</b> https://z.nofwl.com/t ~> https://translate.google.cn</div>
+</div>
+<ul>
+  <li class="head"><b>Path</b><b>Origin</b></li>
+  {% for key, val in links %}
+    <li><b>{{key}}</b><em>{{val}}</em></li>
+  {% endfor %}
+</ul>
+<footer>
+MIT License | Copyright © 2020 <i>❤️</i> lencx
+<footer>
+</body>
+
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+.info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.info b {
+  margin-right: 3px;
+}
+.info a {
+  color: rgb(70, 174, 192);
+}
+ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+ul li {
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+ul li:nth-child(2n) {
+  background: #eee;
+}
+ul .head {
+  background: #000;
+  color: #fff;
+}
+ul li b {
+  display: inline-block;
+  width: 100px;
+  height: 100%;
+}
+ul li em {
+  display: inline-block;
+  word-break: break-all;
+  max-width: calc(100% - 100px);
+}
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+footer i {
+  font-style: normal;
+  font-size: 12px;
+  margin-right: 5px;
+}
+</style>
+{% endif %}
