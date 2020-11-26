@@ -2,5 +2,6 @@
   "/-": "/",
   "/": "https://github.com/lencx/short-link",
   "t": "https://translate.google.cn",
-  "m": "https://mtc.nofwl.com"
+  "m": "https://mtc.nofwl.com",
+  "rs": "https://www.rust-lang.org"
 }
