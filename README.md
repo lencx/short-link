@@ -22,3 +22,17 @@ After the deployment is complete, try to access the root path. If it works, it w
   "m": "https://mtc.nofwl.com"
 }
 ```
+
+## Manage SiteData
+
+> src/index.njk
+
+```njk
+---
+author: lencx
+description: Link shortener
+reopName: lencx/short-link
+repoLink: https://github.com/lencx/short-link
+domain: https://s.nofwl.com
+---
+```

@@ -3,6 +3,7 @@ module.exports = (config) => {
   // When the file or the files in this directory change Eleventy will trigger a build.
   // This is useful if Eleventy is not directly aware of any external file dependencies.
   config.addWatchTarget("public");
+  config.addWatchTarget("src");
 
   config.addPassthroughCopy({ public: '.' });
   return {

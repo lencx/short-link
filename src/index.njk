@@ -1,4 +1,10 @@
 ---
+author: lencx
+description: Link shortener
+reopName: lencx/short-link
+repoLink: https://github.com/lencx/short-link
+domain: https://s.nofwl.com
+
 pagination:
   data: links
   size: 1
@@ -7,9 +13,11 @@ permalink: "{{ link }}/"
 ---
 <!DOCTYPE html>
 <head>
-  <title>~> · lencx</title>
+  <title>~> · {{author}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <meta name="description" content="link shortener" data-react-helmet="true">
+  <meta name="author" content="{{author}}">
+  <meta name="description" content="{{description}}">
+  <meta name="keywords" content="shortlinks, shortlink">
   {% if link !== '/-' %}
   <meta http-equiv="refresh" content="0; url='{{ links[link] }}'">
   {% endif %}
@@ -17,20 +25,29 @@ permalink: "{{ link }}/"
 {% if link === '/-' %}
 <body>
 <div class="info">
-  <div><b>Author:</b> lencx</div>
-  <div><b>Description:</b> Link shortener</div>
-  <div><b>GitHub:</b> <a href="https://github.com/lencx/short-link">https://github.com/lencx/short-link</a></div>
-  <div><b>Root Link:</b> https://s.nofwl.com/{path}</div>
-  <div><b>Example:</b> https://s.nofwl.com/t ~> https://translate.google.cn</div>
+  <div><b>Author:</b> {{author}}</div>
+  <div><b>Description:</b> {{description}}</div>
+  <div><b>GitHub:</b> <a href="{{repoLink}}}">{{reopName}}</a></div>
+  <div><b>Root Link:</b> {{domain}}/{path}</div>
 </div>
 <ul>
   <li class="head"><b>Path</b><b>Origin</b></li>
   {% for key, val in links %}
-    <li><b>{{key}}</b><em>{{val}}</em></li>
+    {% set regExp = r/^\// %}
+    <li>
+      <b>
+        {% if regExp.test(key) %}
+          {{key}}
+        {% else %}
+          /{{key}}
+        {% endif %}
+      </b>
+      <em>{{val}}</em>
+    </li>
   {% endfor %}
 </ul>
 <footer>
-Copyright © 2020 lencx ❤️ Powered by <a href="https://github.com/lencx/short-link">short-link</a>
+Copyright © 2020 {{author}} ❤️ Powered by <a href="https://github.com/lencx/short-link">short-link</a>
 <footer>
 </body>
 
@@ -63,6 +80,7 @@ ul li {
   padding: 5px 10px;
   display: flex;
   align-items: center;
+  font-size: 12px;
 }
 ul li:nth-child(2n) {
   background: #eee;
